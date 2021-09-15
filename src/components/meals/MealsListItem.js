@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import RemoveButton from '../buttons/RemoveButton';
 
-export default function MealsListItem({ meal, date }) {
+export default function MealsListItem({ meal, date, onDelete }) {
   return (
     <div className="list-item">
       {meal ? (
@@ -10,7 +10,12 @@ export default function MealsListItem({ meal, date }) {
           <h4>{date.toLocaleDateString()}</h4>
           <p>{meal.recipe.name}</p>
           <div className="right-action">
-            <RemoveButton onClick={() => {}} title="Remove meal" />
+            <RemoveButton
+              onClick={() => {
+                onDelete(meal._id);
+              }}
+              title="Remove meal"
+            />
           </div>
         </>
       ) : (
