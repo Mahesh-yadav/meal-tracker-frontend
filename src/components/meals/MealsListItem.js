@@ -23,7 +23,7 @@ export default function MealsListItem({ meal, date, onDelete }) {
           <h4>{date.toLocaleDateString()}</h4>
           <p>No meal planned</p>
           <div className="right-action">
-            <Link to={`/recipes?date=${date.toString()}`}>
+            <Link to={`/recipe-search?date=${date.toString()}`}>
               <button>Add</button>
             </Link>
           </div>

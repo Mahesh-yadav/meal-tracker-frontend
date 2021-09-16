@@ -9,10 +9,16 @@ export const useFetch = (url) => {
       setIsLoading(true);
 
       const response = await fetch(url);
-      const data = await response.json();
 
-      setIsLoading(false);
-      setData(data);
+      try {
+        const data = await response.json();
+        setIsLoading(false);
+        setData(data);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+        setData([]);
+      }
     };
 
     fetchData();
